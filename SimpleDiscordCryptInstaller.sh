@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Setup JavaScript files into a working folder
+mkdir /usr/share/SimpleDiscordCrypt
 touch /usr/share/SimpleDiscordCrypt/SimpleDiscordCryptLoader.js /usr/share/SimpleDiscordCrypt/NodeLoad.js
 
 echo 'const onHeadersReceived = (details, callback) => { // SDCEx Hook headers to disable CSP blocking. This might be a security issue, because you can then send requests to everywhere you want?
