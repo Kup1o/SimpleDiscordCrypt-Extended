@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Setup JavaScript files into a working folder
 mkdir /usr/share/SimpleDiscordCrypt
