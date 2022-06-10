@@ -3,6 +3,7 @@
 # Setup JavaScript files into a working folder
 mkdir /usr/share/SimpleDiscordCrypt
 touch /usr/share/SimpleDiscordCrypt/SimpleDiscordCryptLoader.js /usr/share/SimpleDiscordCrypt/NodeLoad.js
+chmod +x /usr/share/SimpleDiscordCrypt/SimpleDiscordCryptLoader.js /usr/share/SimpleDiscordCrypt/NodeLoad.js
 
 echo 'const onHeadersReceived = (details, callback) => { // SDCEx Hook headers to disable CSP blocking. This might be a security issue, because you can then send requests to everywhere you want?
 	let response = { cancel: false };
@@ -181,8 +182,8 @@ sudo ln /usr/share/discord/Discord /usr/share/discord/electron
 # Rewrite Discord Startup Link
 
 # Creating path's variables to avoid an unproperly working sed
-old_link=Exec='/usr/share/discord/Discord'
-new_link=Exec='gnome-terminal -e "set NODE_OPTIONS=-r /usr/share/SimpleDiscordCrypt/NodeLoad.js && /usr/share/discord/electron"'
+old_link='Exec=/usr/share/discord/Discord'
+new_link='Exec=/usr/share/discord/electron && node /usr/share/SimpleDiscordCrypt/NodeLoad.js'
 
 sudo sed -i 's%$old_link%$new_link%g' /usr/share/applications/discord.desktop
 sudo sed -i 's%$old_link%$new_link%g' /usr/share/discord/discord.desktop
